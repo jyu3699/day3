@@ -1,0 +1,350 @@
+@import "/과제/CSS/reset.css";
+
+body{
+  -ms-overflow-style: none;
+  
+  
+  }
+::-webkit-scrollbar {
+  display: none;
+}
+.wrap{
+  height:100%;
+  width:100%;
+}
+.header {
+  top: 0;
+  z-index: 999;
+  position: fixed;
+  height: 100px;
+  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.2);
+  background: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.header .logo {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ccc;
+}
+.content-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-header span {
+  
+  font-weight: bold;
+
+}
+.main-content {
+  position: relative;
+  top: 100px;
+  border-bottom: 1px solid #ccc;
+
+}
+.slide-item {
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+  position: relative;
+  left: 0px;
+  transition: left 0.15s;
+  /* size */
+  width: 100%;
+  flex-shrink: 0;
+}
+.main-content .slide-item span,
+  ul {
+    position: absolute;
+  
+  }
+@media screen and (max-width:800px){
+  .wrap{
+    min-width:800px;
+  }
+  .header .logo {
+    margin-left: 20px;
+  }
+  .header .menu-button {
+    position: absolute;
+    right: 20px;
+  }
+  .header .menu-button .bar {
+    width: 50px;
+    height: 5px;
+    background: #ccc;
+    margin: 10px 0;
+    border-radius: 1px;
+  }
+  .menu-button:hover {
+    cursor: pointer;
+  }
+  .menu-button.on .bar1 {
+    transform: rotate(45deg) translate(10px, 11px);
+    transition: 0.3s;
+  }
+  .menu-button.on .bar2 {
+    visibility: hidden;
+  }
+  .menu-button.on .bar3 {
+    transform: rotate(-45deg) translate(10px, -11px);
+    transition: 0.3s;
+  }
+  .content-header {
+    height: 80px;
+  }
+  .content-header span {
+    font-size: 30px;
+  }
+  .main-content {
+    height: 510px;
+  }
+  .main-content .slide img {
+    position: absolute;
+    right: 30px;
+    height: 90%;
+    width: 30%;
+  }
+  .main-content .slide-item span,
+  ul {
+    position: absolute;
+  
+  }
+  .main-content .slide-item span {
+    top: 30px;
+    left: 60px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .main-content .slide-item ul {
+    left: 60px;
+  }
+  .main-content .slide-item ul li {
+    font-weight: bold;
+    padding: 20px;
+  }
+  .slide {
+    /* layout */
+    display: flex;
+    flex-wrap: nowrap;
+    /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+    overflow: hidden;
+  
+    /* position */
+    /* slide-button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+    position: relative;
+  
+    /* size */
+    width: 100%;
+  
+    /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+    user-select: none;
+  }
+  .slide-item {
+    height: 400px;
+  }
+  
+  
+  
+  /* 페이지네이션 스타일 */
+  ul,
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .slide-pagination {
+    /* layout */
+    display: flex;
+    gap: 5px;
+  
+    /* position */
+    position: absolute;
+    bottom: 0;
+    /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .slide-pagination>li {
+    /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+    color: #ccc;
+    cursor: pointer;
+    font-size: 25px;
+  }
+  .slide-pagination>li.active {
+    /* 현재 슬라이드 색상은 투명도 없이 */
+    color: orange;
+  }
+  .slide-item-duplicate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+    transition: left 0.15s;
+  }
+  .sect-new{
+    position:relative;
+    top:99px;
+    height:800px;
+    width:100%;
+  }
+  .sect-new .sect-new-header {
+    border: 1px solid #000;
+    display:flex;
+    height:80px;
+    align-items:center;
+    justify-content:center;
+  }
+}
+/* MOBILE */
+@media screen and (min-width:801px) {
+  .header .logo {
+    margin:auto;
+  }
+  
+  .content-header {
+    height: 100px;
+  
+    
+  }
+  .content-header span {
+    font-size: 40px;
+    font-weight: bold;
+  
+  }
+  .main-content {
+    
+    height: 700px;
+    
+  
+  }
+  
+  .main-content .slide img {
+    position: absolute;
+    right: 30px;
+    height: 100%;
+    width: 30%;
+  }
+  
+  .main-content .slide-item span {
+    top: 30px;
+    left: 60px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .main-content .slide-item ul {
+    left: 60px;
+  }
+  .main-content .slide-item ul li {
+    font-weight: bold;
+    padding: 20px;
+  }
+  .slide {
+    /* layout */
+    display: flex;
+    flex-wrap: nowrap;
+    /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+    overflow: hidden;
+  
+    /* position */
+    /* slide-button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+    position: relative;
+  
+    /* size */
+    width: 100%;
+  
+    /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+    user-select: none;
+  }
+  .slide-item {
+    height: 500px;
+  }
+  .slide-button {
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* position */
+    position: absolute;
+    /* 버튼이 중앙에 위치하게 하기위해 계산 */
+    top: calc(50% - 16px);
+  
+    /* size */
+    width: 32px;
+    height: 32px;
+  
+    /* style */
+    border-radius: 100%;
+    background-color: #ccc;
+    /* cursor: pointer; */
+  }
+  .slide-prev-button {
+    left: 10px;
+  }
+  .slide-next-button {
+    right: 10px;
+  }
+  /* 페이지네이션 스타일 */
+  ul,
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .slide-pagination {
+    /* layout */
+    display: flex;
+    gap: 5px;
+  
+    /* position */
+    position: absolute;
+    bottom: 0;
+    /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .slide-pagination>li {
+    /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+    color: #ccc;
+    cursor: pointer;
+    font-size: 25px;
+  }
+  .slide-pagination>li.active {
+    /* 현재 슬라이드 색상은 투명도 없이 */
+    color: orange;
+  }
+  .slide-item-duplicate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+    transition: left 0.15s;
+  }
+  .sect-new{
+    position:relative;
+    top:99px;
+    height:800px;
+    width:100%;
+  }
+  .sect-new .sect-new-header {
+    border: 1px solid #000;
+    display:flex;
+    height:80px;
+    align-items:center;
+    justify-content:center;
+  }
+}
